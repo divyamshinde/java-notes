@@ -1,0 +1,50 @@
+
+ Implementation:
+1. RBI (Base Class)
+package Bank;
+
+class RBI {
+    public void calculate() {
+        System.out.println("Calculating interest in RBI...");
+    }
+}
+2. SBI (Subclass)
+package Bank;
+
+class SBI extends RBI {
+    @Override
+    public void calculate() {
+        System.out.println("Calculating interest in SBI...");
+    }
+}
+3. HDFC (Subclass)
+package Bank;
+
+class HDFC extends RBI {
+    @Override
+    public void calculate() {
+        System.out.println("Calculating interest in HDFC...");
+    }
+}
+4. Main_Bank (Main Class)
+package Bank;
+
+public class Main_Bank {
+    public static void main(String args[]) {
+        // Create instances and call calculate() for each bank
+        RBI rbi = new RBI();
+        SBI sbi = new SBI();
+        HDFC hdfc = new HDFC();
+
+        // Execute calculations
+        rbi.calculate();
+        sbi.calculate();  // Call SBI's calculate() method
+        hdfc.calculate();
+    }
+}
+________________________________________
+Expected Output:
+Calculating interest in RBI...
+Calculating interest in SBI...
+Calculating interest in HDFC...
+
