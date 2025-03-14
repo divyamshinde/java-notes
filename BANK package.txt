@@ -1,0 +1,46 @@
+package bank;
+
+// RBI should be an interface, not a class
+public interface RBI {
+    void calculate(); // Interface method (no body)
+}
+
+
+
+package bank;
+
+public class SBI implements RBI { // SBI implements RBI interface
+    protected float cash = 9000.5f; // Cash should be an instance variable
+
+    @Override
+    public void calculate() {
+        float ROI = cash * 0.9f;
+        System.out.println("SBI: Amount you get after interest = " + (ROI + cash));
+    }
+}
+
+
+package bank;
+
+public class HDFC extends SBI { // No need to implement RBI separately
+
+    @Override
+    public void calculate() {
+        float ROI = cash * 0.7f;
+        System.out.println("HDFC: Amount you get after interest = " + (ROI + cash));
+    }
+}
+
+
+import bank.HDFC;
+import bank.SBI;
+
+public class Main {
+    public static void main(String[] args) {
+        SBI s = new SBI();
+        HDFC h = new HDFC();
+
+        s.calculate(); // Calls SBI's calculate() method
+        h.calculate(); // Calls HDFC's calculate() method
+    }
+}
